@@ -1,8 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { darkModeSlice } from '@/lib/features/darkMode/darkMode'
+
+const rootReducer = combineReducers({darkMode: darkModeSlice})
 
 export const makeStore = () => {
   return configureStore({
-    reducer: {},
+    reducer: {
+      rootReducer,
+    },
   })
 }
 

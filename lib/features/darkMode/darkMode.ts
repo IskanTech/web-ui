@@ -30,7 +30,8 @@ export const darkModeSlice = createSlice({
             }
             state.darkMode = !state.darkMode
         }
+    },
+    selectors: {
+        selectDarkMode: (state) => state.darkMode,
     }
 })
-
-export const darkModeSelector = (state: RootState) => state.darkMode
