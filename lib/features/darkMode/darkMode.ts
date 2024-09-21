@@ -1,6 +1,5 @@
 
 import { createSlice } from '@reduxjs/toolkit'
-import { RootState } from '@/lib/store'
 
 export interface DarkModeState {
     darkMode: boolean
