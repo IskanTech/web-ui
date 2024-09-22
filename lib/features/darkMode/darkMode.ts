@@ -22,7 +22,9 @@ export const darkModeSlice = createSlice({
             state.darkMode = false
         },
         toggleDarkMode: state => {
-            state.darkMode = !state.darkMode
+            if (state.darkMode !== undefined) {
+                state.darkMode = !state.darkMode
+            }
         }
     },
     selectors: {
