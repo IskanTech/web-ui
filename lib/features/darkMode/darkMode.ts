@@ -2,24 +2,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export interface DarkModeState {
-    darkMode: boolean
+    darkMode: boolean | undefined
 }
 
 const initialState = (): DarkModeState => {
-    /*
-    if (localStorage.getItem("darkMode") !== null) {
-        return {
-            darkMode: localStorage.getItem("darkMode") === "true"
-        }
-    }
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
     return {
-        darkMode: mediaQuery.matches
-    }
-    CANT USE BROWSER QUERIES HERE APPARANELY? NEED TO MOVE THIS    
-    */
-    return {
-        darkMode: false
+        darkMode: undefined
     }
 }
 
@@ -27,6 +15,12 @@ export const darkModeSlice = createSlice({
     name: "darkMode",
     initialState,
     reducers: {
+        setDarkMode: state => {
+            state.darkMode = true
+        },
+        setLightMode: state => {
+            state.darkMode = false
+        },
         toggleDarkMode: state => {
             state.darkMode = !state.darkMode
         }
@@ -35,5 +29,7 @@ export const darkModeSlice = createSlice({
         selectDarkMode: (state: DarkModeState) => state.darkMode,
     }
 })
+
+export const { setDarkMode, setLightMode, toggleDarkMode } = darkModeSlice.actions
 
 export const { selectDarkMode } = darkModeSlice.selectors
