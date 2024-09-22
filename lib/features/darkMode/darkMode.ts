@@ -6,6 +6,7 @@ export interface DarkModeState {
 }
 
 const initialState = (): DarkModeState => {
+    /*
     if (localStorage.getItem("darkMode") !== null) {
         return {
             darkMode: localStorage.getItem("darkMode") === "true"
@@ -15,6 +16,11 @@ const initialState = (): DarkModeState => {
     return {
         darkMode: mediaQuery.matches
     }
+    CANT USE BROWSER QUERIES HERE APPARANELY? NEED TO MOVE THIS    
+    */
+    return {
+        darkMode: false
+    }
 }
 
 export const darkModeSlice = createSlice({
@@ -22,15 +28,12 @@ export const darkModeSlice = createSlice({
     initialState,
     reducers: {
         toggleDarkMode: state => {
-            if (state.darkMode) {
-                localStorage.setItem("darkMode", "false")
-            } else {
-                localStorage.setItem("darkMode", "true")
-            }
             state.darkMode = !state.darkMode
         }
     },
     selectors: {
-        selectDarkMode: (state) => state.darkMode,
+        selectDarkMode: (state: DarkModeState) => state.darkMode,
     }
 })
+
+export const { selectDarkMode } = darkModeSlice.selectors

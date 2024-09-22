@@ -1,18 +1,17 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { darkModeSlice } from '@/lib/features/darkMode/darkMode'
 
-const rootReducer = combineReducers({darkMode: darkModeSlice})
-
+const rootReducer = combineReducers({
+  darkMode: darkModeSlice.reducer,
+})
 export const makeStore = () => {
   return configureStore({
-    reducer: {
-      rootReducer,
-    },
+    reducer: rootReducer,
   })
 }
 
-// Infer the type of makeStore
+// Infer the return type of `makeStore`
 export type AppStore = ReturnType<typeof makeStore>
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<AppStore['getState']>
-export type AppDispatch = AppStore['dispatch']
+// Infer the `AppDispatch` type from the store itself
+export type AppDispatch = AppStore["dispatch"]
+export type RootState = ReturnType<typeof rootReducer>
