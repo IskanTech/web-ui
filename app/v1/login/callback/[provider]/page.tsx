@@ -1,5 +1,6 @@
 "use client"
 
+import { setCookie } from '@/utils/cookie'
 import { useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 
@@ -23,7 +24,7 @@ export default function Page({ params }: {
             }),
         })
             .then(res => res.json())
-            .then(res => console.log(res.SessionID))
+            .then(res => setCookie("token", res.SessionID))
             .catch(err => console.log(err))
     }, [])
 
