@@ -2,7 +2,6 @@ import React from 'react'
 import Image from "next/image"
 import logoImage from "@/public/logo/logoipsum-299.svg"
 
-import { useAppDispatch } from '@/lib/hooks'
 import DarkModeToggleSwitch from '@/components/DarkModeToggleSwitch'
 
 export default function HorizontalNavbar() {
