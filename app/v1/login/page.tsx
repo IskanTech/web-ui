@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
-
 export default function LoginPage() {
   const [oauthProviderNames, setOauthProviderNames] = useState<string[]>([])
 
@@ -15,11 +14,21 @@ export default function LoginPage() {
   }, [])
 
   return (
-    <div className="text-3xl font-bold underline">
-        Login Page
-        {oauthProviderNames.map((name, ind) => (
-            <OauthProviderButton key={ind} providerName={name} />
-          ))}
+    <div className="container-xl flex flex-row w-full min-h-screen justify-between content-center bg-zinc-300">
+      <div className="flex-initial w-1/2 h-screen bg-mainViolet">
+        
+      </div>
+      <div className="w-1/2 h-screen text-3xl font-bold p-8 bg-blue-200 flex justify-center items-center">
+      <div className="m-auto p-6 rounded-md w-40 bg-blue-100 flex flex-col shadow-md">
+          <h1 className="text-blue-900 text-center w-full relative text-2xl uppercase">
+            Login
+            <hr></hr>
+          </h1>
+          {oauthProviderNames.map((name, ind) => (
+              <OauthProviderButton key={ind} providerName={name} />
+            ))}
+        </div>          
+      </div>
     </div>
   )
 }

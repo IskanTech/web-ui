@@ -31,9 +31,9 @@ export default function Home() {
     }
 
     return (
-        <div className={`${isDarkMode && "dark"} flex flex-col w-full min-h-screen pb-20 m-0 font-[family-name:var(--font-geist-sans)]`}>
+        <div className={`${isDarkMode && "dark"} flex flex-col w-full min-h-screen pb-20 m-0`}>
             <HorizontalNavbar />
-            <main className="flex-initial flex w-full flex-col gap-8">
+            <main className="flex-initial flex w-full min-h-screen flex-col gap-8 bg-zinc-300 dark:bg-gray-700">
             </main>
             <Footer />
         </div>
