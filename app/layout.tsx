@@ -1,16 +1,8 @@
 import type { Metadata } from "next"
-import { Roboto_Flex } from 'next/font/google'
 
 import "./globals.css"
 
 import StoreProvider from "@/app/StoreProvider"
-
-const Roboto = Roboto_Flex({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  
-})
 
 export const metadata: Metadata = {
   title: "placeholder - TODO",
@@ -25,7 +17,7 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html lang="en">
-        <body className={`${Roboto.className} antialiased`}>
+        <body className={`font-sans antialiased`}>
           {children}
         </body>
       </html>

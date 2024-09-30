@@ -19,10 +19,10 @@ export default function LoginPage() {
         
       </div>
       <div className="w-1/2 h-screen text-3xl font-bold p-8 bg-blue-200 flex justify-center items-center">
-      <div className="m-auto p-6 rounded-md w-40 bg-blue-100 flex flex-col shadow-md">
+        <div className="m-auto font-sans p-6 rounded-md min-w-96 w-40 bg-blue-100 flex flex-col shadow-md">
           <h1 className="text-blue-900 text-center w-full relative text-2xl uppercase">
             Login
-            <hr></hr>
+            <hr className="h-1 w-full border-gray-700 border-solid border-t-2"></hr>
           </h1>
           {oauthProviderNames.map((name, ind) => (
               <OauthProviderButton key={ind} providerName={name} />

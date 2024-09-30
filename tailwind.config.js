@@ -6,6 +6,11 @@ module.exports = {
   ],
   darkMode: "selector",
   theme: {
+    fontFamily: {
+      sans: ['Roboto', 'sans-serif'], // Roboto for sans-serif fonts
+      serif: ['Montserrat', 'serif'], // Montserrat for serif fonts
+      mono: ['"Fira Code"', 'monospace'], // Fira Code for monospaced fonts
+    },
     extend: {
       colors: {
         'mainViolet': '#382F9C' 
