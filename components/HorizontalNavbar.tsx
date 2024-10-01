@@ -6,7 +6,7 @@ import DarkModeToggleSwitch from '@/components/DarkModeToggleSwitch'
 
 export default function HorizontalNavbar() {
   return (
-    <nav className="bg-mainViolet dark:bg-gray-800 w-full py-3 px-20 m-0 text-white font-[family-name:var(--font-geist-sans)]">
+    <nav className="self-start bg-mainViolet dark:bg-gray-800 w-full py-5 px-20 m-0 text-white font-[family-name:var(--font-geist-sans)]">
         <div className="w-full max-w-screen-xl flex flex-row m-auto items-center justify-between">
             <div className="flex-auto">
                 <Image
