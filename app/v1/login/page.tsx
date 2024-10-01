@@ -25,7 +25,7 @@ export default function LoginPage() {
       <div className="w-1/2 h-screen text-3xl font-bold p-8 bg-blue-300 flex justify-center items-center">
         <form className="m-auto font-sans p-8 rounded-md min-w-96 w-40 bg-sky-50 flex flex-col shadow-xl text-slate-900">
           <h1 className="text-center w-full relative font-playwriteFont text-4xl">
-            Login Here
+            Login
           </h1>
           <div className="my-6">
             <label className="block text-sm font-bold mb-1" htmlFor="username">
@@ -43,7 +43,7 @@ export default function LoginPage() {
               }}
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-4">
             <label className="block text-sm font-bold mb-1" htmlFor="password">
               Password
             </label>
@@ -59,13 +59,16 @@ export default function LoginPage() {
               }}
             />
            {invalidCredentials && <p className="text-red-500 text-xs italic">Invalid username or password</p>}
-           <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+            <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
               Forgot Password?
             </a>
           </div>
           <div className="flex flex-col justify-between">
             <button className="bg-blue-500 hover:bg-blue-700 text-white text-lg font-bold py-2 px-4 min-w-32 focus:outline-none focus:shadow-outline" type="button">
               Sign In
+            </button>    
+            <button className="mt-8 bg-blue-500 hover:bg-blue-700 text-white text-lg font-bold py-2 px-4 min-w-32 focus:outline-none focus:shadow-outline" type="button">
+              Create Account
             </button>            
             {oauthProviderNames.map((name, ind) => (
               <OauthProviderButton key={ind} providerName={name} />
