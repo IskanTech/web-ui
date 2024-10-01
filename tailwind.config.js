@@ -12,6 +12,10 @@ module.exports = {
       mono: ['"Fira Code"', 'monospace'], // Fira Code for monospaced fonts
     },
     extend: {
+      fontFamily: {
+        playwriteFont: ['"Playwrite DE Grund"', 'cursive'],
+        // Add more custom font families as needed
+      },
       colors: {
         'mainViolet': '#382F9C' 
       },

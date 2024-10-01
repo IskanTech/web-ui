@@ -6,6 +6,10 @@ import { useRouter } from 'next/navigation'
 export default function LoginPage() {
   const [oauthProviderNames, setOauthProviderNames] = useState<string[]>([])
 
+  const [invalidCredentials, setInvalidCredentials] = useState<boolean>(false)
+  const [username, setUsername] = useState<string>("")
+  const [password, setPassword] = useState<string>("")
+
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_ROUTE}/v1/login/providers`)
       .then(res => res.json())
@@ -18,16 +22,56 @@ export default function LoginPage() {
       <div className="flex-initial w-1/2 h-screen bg-mainViolet">
         
       </div>
-      <div className="w-1/2 h-screen text-3xl font-bold p-8 bg-blue-200 flex justify-center items-center">
-        <div className="m-auto font-sans p-6 rounded-md min-w-96 w-40 bg-blue-100 flex flex-col shadow-md">
-          <h1 className="text-blue-900 text-center w-full relative text-2xl uppercase">
-            Login
-            <hr className="h-1 w-full border-gray-700 border-solid border-t-2"></hr>
+      <div className="w-1/2 h-screen text-3xl font-bold p-8 bg-blue-300 flex justify-center items-center">
+        <form className="m-auto font-sans p-8 rounded-md min-w-96 w-40 bg-sky-50 flex flex-col shadow-xl text-slate-900">
+          <h1 className="text-center w-full relative font-playwriteFont text-4xl">
+            Login Here
           </h1>
-          {oauthProviderNames.map((name, ind) => (
+          <div className="my-6">
+            <label className="block text-sm font-bold mb-1" htmlFor="username">
+              Username
+            </label>
+            <input 
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 text-base leading-tight focus:outline-none focus:shadow-outline" 
+              id="username" 
+              type="text" 
+              placeholder="human@company.com"
+              value={username}
+              onChange={e => {
+                e.preventDefault()
+                setUsername(e.target.value)
+              }}
+            />
+          </div>
+          <div className="mb-6">
+            <label className="block text-sm font-bold mb-1" htmlFor="password">
+              Password
+            </label>
+            <input 
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 text-base mb-3 leading-tight focus:outline-none focus:shadow-outline" 
+              id="password" 
+              type="password" 
+              placeholder="******************" 
+              value={password}
+              onChange={e => {
+                e.preventDefault()
+                setPassword(e.target.value)
+              }}
+            />
+           {invalidCredentials && <p className="text-red-500 text-xs italic">Invalid username or password</p>}
+           <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+              Forgot Password?
+            </a>
+          </div>
+          <div className="flex flex-col justify-between">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white text-lg font-bold py-2 px-4 min-w-32 focus:outline-none focus:shadow-outline" type="button">
+              Sign In
+            </button>            
+            {oauthProviderNames.map((name, ind) => (
               <OauthProviderButton key={ind} providerName={name} />
             ))}
-        </div>          
+          </div>
+        </form>          
       </div>
     </div>
   )
@@ -56,7 +100,7 @@ function OauthProviderButton(props: OauthProviderButtonProps) {
   }
 
   return (
-    <button onClick={() => router.push(oauthRedirectUrl)}>
+    <button className="my-2 text-white text-lg font-bold" onClick={() => router.push(oauthRedirectUrl)}>
       {providerName}
     </button>
   )

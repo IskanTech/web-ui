@@ -31,10 +31,11 @@ export default function Home() {
     }
 
     return (
-        <div className={`${isDarkMode && "dark"} flex flex-col w-full min-h-screen pb-20 m-0`}>
+        <div className={`${isDarkMode && "dark"} flex flex-col justify-start w-full min-h-screen m-0 bg-zinc-200 dark:bg-gray-700`}>
             <HorizontalNavbar />
-            <main className="flex-initial flex w-full min-h-screen flex-col gap-8 bg-zinc-300 dark:bg-gray-700">
-            </main>
+            <div className="flex-grow">
+                {/* landing page content */}
+            </div>
             <Footer />
         </div>
     )
